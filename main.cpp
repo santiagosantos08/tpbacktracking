@@ -4,6 +4,7 @@
 #include<map>
 #include<set>
 #include<algorithm>
+#include<list>
 
 int buscarMejorAsignacion(std::vector<std::vector<int>> &puntajes, std::map<int,int> &asignacionFinal,
                           std::map<int,bool> &arbitros, std::vector<std::pair<int,int>> &enfrentamientos,
@@ -31,7 +32,7 @@ int buscarMejorAsignacion(std::vector<std::vector<int>> &puntajes, std::map<int,
     while(arbitro != arbitros.end()){
         //posible mejora: este while hacerlo solo sobre los que estan disponibles
         //en lugar de sobre todos y luego verificar si esta disponible
-        if(arbitro->second){ // arbitros => map<int NroArbitro,bool Disponible>, el second es si está disponible
+        if(arbitro->second){ // arbitros => map<int NroArbitro,bool Disponible>, el second es si estÃ¡ disponible
             metrica++;
             arbitro->second = false;
             puntos = puntajes[enfrentamientos[partido].first][arbitro->first] + puntajes[enfrentamientos[partido].second][arbitro->first];
